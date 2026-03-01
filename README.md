@@ -44,3 +44,4 @@ powershell -File skills/local/skill-governance/scripts/route-skill.ps1 -Root <wo
 
 - Designed for Windows PowerShell compatibility.
 - Keep `skill-registry.json` as the single source of truth in your OpenClaw workspace.
+- Security posture is documented in `SECURITY.md` (local-only governance, no outbound network requirement).
