@@ -13,10 +13,13 @@ Practical skills and governance assets for OpenClaw, with a focus on stability f
   - weekly non-destructive cleanup
 
 - `PROCESS-AND-SELFCHECK.md`  
-  Today’s optimization process, release result, and a new-user validation checklist.
+  Today's optimization process, release result, and a new-user validation checklist.
 
 - `SKILL-GOVERNANCE.md`  
   Operator runbook for daily/weekly governance operations.
+
+- `WINDOWS-REMOTE-DEPLOY.md`
+  Minimal Windows host bootstrap, SSH prep, and remote handoff checklist for bringing a fresh OpenClaw install up to the governance baseline.
 
 ## Install
 
@@ -39,6 +42,7 @@ powershell -File skills/local/skill-governance/scripts/route-skill.ps1 -Root <wo
   - `scripts/*.ps1`
 - `PROCESS-AND-SELFCHECK.md`
 - `SKILL-GOVERNANCE.md`
+- `WINDOWS-REMOTE-DEPLOY.md`
 
 ## Notes
 
