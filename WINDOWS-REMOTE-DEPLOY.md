@@ -9,6 +9,26 @@ It is intentionally pragmatic:
 - no Docker requirement
 - no Cursor requirement
 
+## Environment and tool summary
+
+Required for a basic usable host:
+
+1. Node.js
+2. Git
+3. Chrome
+4. OpenClaw
+
+Optional but useful:
+
+5. Python
+6. OpenSSH Server
+
+Not required for this baseline:
+
+- WSL2
+- Docker
+- Cursor
+
 ## What to install on the new Windows host
 
 Run these in the built-in Windows PowerShell as Administrator.
@@ -110,6 +130,27 @@ Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 
 Then reopen the terminal and rerun the failing command.
 
+## Final API/config file
+
+Use the template files in `templates/`:
+
+- `templates/openclaw.minimal.example.json`
+- `templates/API-CONFIG-NOTES.md`
+
+The remote operator should merge the example into:
+
+```text
+C:\Users\<User>\.openclaw\openclaw.json
+```
+
+Required manual replacements:
+
+1. valid `bailian` Coding Plan API key
+2. correct Windows username in the workspace path
+3. final `gateway.auth.token`
+
+Do not commit real keys or real tokens into GitHub.
+
 ## Prepare SSH for remote handoff
 
 Run in built-in Windows PowerShell as Administrator:
@@ -186,16 +227,16 @@ Once SSH works, the remote operator can:
 1. install or verify Git and OpenClaw
 2. clone the GitHub repo
 3. pull governance assets into the target workspace
-4. install `skill-governance-balanced`
-5. run reconciliation and audit acceptance
-6. apply workspace rule files and verify doctor/browser health
+4. apply the minimal config template to `openclaw.json`
+5. install `skill-governance-balanced` if governance is wanted
+6. run reconciliation and audit acceptance
+7. verify doctor and browser health
 
-This repo currently covers the governance layer well.
+This repo currently covers the governance layer and baseline config template.
 It does not yet provide a full one-command machine bootstrap for:
 
-- provider/model templates
-- gateway token provisioning
-- workspace core-file templating
+- provider/model secrets provisioning
+- gateway token issuance workflow
 - browser login state transfer
 
 Those remain operator-guided steps after the base install.
@@ -213,7 +254,7 @@ ssh -V
 openclaw doctor
 ```
 
-Then validate the governance layer:
+Then validate the governance layer if used:
 
 ```powershell
 npx clawhub@latest install skill-governance-balanced

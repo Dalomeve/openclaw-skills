@@ -19,7 +19,13 @@ Practical skills and governance assets for OpenClaw, with a focus on stability f
   Operator runbook for daily/weekly governance operations.
 
 - `WINDOWS-REMOTE-DEPLOY.md`
-  Minimal Windows host bootstrap, SSH prep, and remote handoff checklist for bringing a fresh OpenClaw install up to the governance baseline.
+  Minimal Windows host bootstrap, SSH prep, remote handoff checklist, and base environment/tool summary.
+
+- `templates/openclaw.minimal.example.json`
+  Minimal OpenClaw config template for a fresh Windows host.
+
+- `templates/API-CONFIG-NOTES.md`
+  Notes for filling the provider key, workspace path, and gateway token safely.
 
 ## Install
 
@@ -43,6 +49,8 @@ powershell -File skills/local/skill-governance/scripts/route-skill.ps1 -Root <wo
 - `PROCESS-AND-SELFCHECK.md`
 - `SKILL-GOVERNANCE.md`
 - `WINDOWS-REMOTE-DEPLOY.md`
+- `templates/openclaw.minimal.example.json`
+- `templates/API-CONFIG-NOTES.md`
 
 ## Notes
 

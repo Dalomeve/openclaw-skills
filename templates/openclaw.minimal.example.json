@@ -1,0 +1,100 @@
+{
+  "browser": {
+    "enabled": true,
+    "defaultProfile": "openclaw",
+    "profiles": {
+      "openclaw": {
+        "cdpPort": 18800,
+        "driver": "clawd",
+        "color": "#FF4500"
+      }
+    }
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "bailian": {
+        "baseUrl": "https://coding.dashscope.aliyuncs.com/v1",
+        "apiKey": "REPLACE_WITH_YOUR_CODING_PLAN_KEY",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "qwen3.5-plus",
+            "name": "qwen3.5-plus",
+            "reasoning": false,
+            "input": ["text", "image"],
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
+            "contextWindow": 1000000,
+            "maxTokens": 65536
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "bailian/qwen3.5-plus"
+      },
+      "models": {
+        "bailian/qwen3.5-plus": {}
+      },
+      "workspace": "C:\\Users\\REPLACE_WITH_WINDOWS_USER\\.openclaw\\workspace",
+      "userTimezone": "Asia/Shanghai",
+      "contextTokens": 1000000,
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "timeoutSeconds": 7200,
+      "heartbeat": {
+        "every": "15m",
+        "target": "last",
+        "directPolicy": "allow",
+        "prompt": "Read HEARTBEAT.md and execute at most 1-2 concrete actions that advance unfinished goals. Always produce execution evidence (artifact + verification). If blocked, report exact blocker + minimal required user input. If no meaningful action exists, reply HEARTBEAT_OK.",
+        "ackMaxChars": 300
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    }
+  },
+  "tools": {
+    "exec": {}
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "command-logger": {
+          "enabled": true
+        },
+        "session-memory": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "REPLACE_WITH_YOUR_GATEWAY_TOKEN"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    }
+  }
+}
